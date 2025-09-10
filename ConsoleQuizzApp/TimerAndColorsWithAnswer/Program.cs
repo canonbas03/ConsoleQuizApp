@@ -126,19 +126,19 @@ namespace ConsoleQuizzApp
         }
     }
 
-    //internal class Question
-    //{
-    //    public string Text { get; set; }
-    //    public string[] Options { get; set; }
-    //    public string CorrectOption { get; set; } // "a", "b", "c", "d"
+    internal class Question
+    {
+        public string Text { get; set; }
+        public string[] Options { get; set; }
+        public string CorrectOption { get; set; } // "a", "b", "c", "d"
 
-    //    public bool IsCorrect(string userAnswer)
-    //    {
-    //        return string.Equals(
-    //            userAnswer?.Trim().ToLower(),
-    //            CorrectOption.ToLower(),
-    //            StringComparison.OrdinalIgnoreCase
-    //        );
-    //    }
-    //}
+        public bool IsCorrect(string userAnswer)
+        {
+            return string.Equals(
+                userAnswer?.Trim().ToLower(),
+                CorrectOption.ToLower(),
+                StringComparison.OrdinalIgnoreCase
+            );
+        }
+    }
 }

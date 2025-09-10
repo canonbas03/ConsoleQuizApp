@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             List<Question> questions = QuizData.Questions.ToList();
 
             int score = 0;
