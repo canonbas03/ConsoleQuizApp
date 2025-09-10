@@ -4,41 +4,39 @@
     {
         static void Main(string[] args)
         {
-            List<Question> questions = new List<Question>
-            {
-                new Question
-                {
-                    Text = "This questions answer is A?",
-                    Options = new string[] { "aaa", "bbb", "ccc", "ddd" },
-                    CorrectIndex = 0
-                },
-                new Question
-                {
-                      Text = "This questions answer is C?",
-                    Options = new string[] { "aaa", "bbb", "ccc", "ddd" },
-                    CorrectIndex = 2
-                }
-            };
+            List<Question> questions = QuizData.Questions.ToList();
 
+            int score = 0;
+            int questionNumber = 1;
+            string[] optionFormat = new string[] { "   a. ", "   b. ", "   c. ", "   d. " };
+            string answer;
             foreach (var quest in questions)
             {
-                string[] optionFormat = new string[] { "   a. ", "   b. ", "   c. ", "   d. "};
-                int answer = 0;
-                Console.WriteLine(quest.Text);
+                Console.WriteLine($"{questionNumber}. {quest.Text}");
                 for (int i = 0; i < quest.Options.Length; i++)
                 {
                     Console.WriteLine(optionFormat[i] + quest.Options[i]);
                 }
-                answer = int.Parse(Console.ReadLine());
+
+                Console.Write("Your Answer: ");
+                answer = Console.ReadLine();
                 if (quest.IsCorrect(answer))
                 {
-                    Console.WriteLine("Correct"!);
+                    Console.WriteLine("Correct!");
+                    score++;
                 }
                 else
                 {
                     Console.WriteLine("WRONG!");
+                    break;
                 }
+                questionNumber++;
             }
+            if (score == questions.Count)
+            {
+                Console.WriteLine("YOU WON!!!");
+            }
+            else Console.WriteLine("GOOD BYE!");
         }
     }
 }
