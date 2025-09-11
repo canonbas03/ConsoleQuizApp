@@ -144,13 +144,24 @@ namespace BlankTest
             int cursorRow = 17;
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.CursorVisible = false;
+            bool tick = true;
             for (int i = 0; i < 30; i++)
             {
                 Console.SetCursorPosition(cursorColumn, cursorRow);
                 Console.Write("○");
-                cursorColumn+=2;
-                Console.Beep(500,200);
-                Thread.Sleep(1000);
+                cursorColumn += 2;
+                tick = tick == true ? false : true;
+                if (!tick)
+                {
+                    Console.Beep(1661, 200);
+                }
+                else
+                {
+
+                    Console.Beep(1479, 200);
+                }
+                //g#6 1661, f#6 1479
+                Thread.Sleep(800);
             }
 
         }
