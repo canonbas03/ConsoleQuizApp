@@ -115,7 +115,7 @@ namespace BlankTest
                 Console.ResetColor();
             }
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.Write("\t\t\t    ○ ○ ● ● ● ");
+            Console.Write("\t\t\t    ● ● ● ● ● ");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("● ● ● ● ● ");
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -140,6 +140,7 @@ namespace BlankTest
 
         public static void TimeRemover()
         {
+            Thread.Sleep(2000);
             int cursorColumn = 28;
             int cursorRow = 17;
             Console.ForegroundColor = ConsoleColor.DarkGray;
