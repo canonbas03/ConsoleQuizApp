@@ -55,7 +55,7 @@ namespace BlankTest
                 }
 
                 spacing += step; // grow spacing
-                Thread.Sleep(1000);
+                Thread.Sleep(50);
             }
 
             Console.SetCursorPosition(0, 5);
@@ -91,7 +91,7 @@ namespace BlankTest
                 }
             }
 
-            Console.SetCursorPosition(0, 5);
+           // Console.SetCursorPosition(0, 27);
         }
     }
 }

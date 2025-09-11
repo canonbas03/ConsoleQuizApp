@@ -13,11 +13,8 @@
             string answer;
             foreach (var quest in questions)
             {
-                Console.WriteLine($"{questionNumber}. {quest.Text}");
-                for (int i = 0; i < quest.Options.Length; i++)
-                {
-                    Console.WriteLine(optionFormat[i] + quest.Options[i]);
-                }
+                Console.WriteLine(quest.Text);
+                Console.WriteLine($"\t⬩ A:  {quest.Options[0]}\t\t\t\t       ⬩ B:  {quest.Options[1]}\r\n\n\t⬩ C:  {quest.Options[2]}\t\t\t\t       ⬩ D:  {quest.Options[3]}\r\n");
 
                 Console.Write("Your Answer: ");
                 answer = Console.ReadLine();

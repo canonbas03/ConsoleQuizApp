@@ -12,8 +12,8 @@ namespace ConsoleQuizzApp
         {
             new Question
                 {
-                    Text = "Which is the capital city of Bulgaria?",
-                    Options = new string[] { "Varna", "Burgas", "Sofia", "Razgrad" },
+                    Text = "\r\n\r\n—---------------------------------------{What is the capital of France?}—--------------------------------------------\r\n\t",
+                    Options = new string[] { "Varna", "Burgas", "Paris", "Razgrad" },
                     CorrectOption = "c"
                 },
             new Question
