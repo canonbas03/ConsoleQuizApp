@@ -8,29 +8,90 @@ namespace BlankTest
 {
     internal class Joker
     {
-        public static string JokerModel(string name, bool isUsed)
+        public static string[] JokerModel(string name, bool isUsed)
         {
-            string used = "╭──╮\r\n|❌|\r\n╰──╯";
+            string[] used = { "╭──╮", "|❌|", "╰──╯" };
+
             if (name == "Viewers" && !isUsed)
-            {
-                return "╭──╮\r\n|👥│\r\n╰──╯";
-            }
+                return new[] { "╭──╮", "|👥│", "╰──╯" };
             else if (name == "Telephone" && !isUsed)
-            {
-                return "╭──╮\r\n|📞│\r\n╰──╯";
-            }
+                return new[] { "╭──╮", "|📞│", "╰──╯" };
             else if (name == "Fifty" && !isUsed)
-            {
-                return "╭──╮\r\n|50│\r\n╰──╯";
-            }
+                return new[] { "╭──╮", "|50│", "╰──╯" };
             else if (name == "TwoAnswer" && !isUsed)
+                return new[] { "╭──╮", "|x2|", "╰──╯" };
+
+            return used;
+        }
+
+        public static void JokerInitialCreate()
+        {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            //Console.Clear();
+
+            string[][] jokers = new string[][]
             {
-                return "╭──╮\r\n|x2|\r\n╰──╯";
+                Joker.JokerModel("Viewers", false),
+                Joker.JokerModel("Telephone", false),
+                Joker.JokerModel("Fifty", false),
+                Joker.JokerModel("TwoAnswer", false)
+            };
+
+            int spacing = 0; // start spacing
+            int step = 1;    // how much space to add per frame
+
+            for (int i = 0; i < 5; i++) // animate 5 frames
+            {
+                //Console.Clear();
+
+                for (int row = 0; row < 3; row++) // 3 rows tall
+                {
+                    for (int j = 0; j < jokers.Length; j++)
+                    {
+                        Console.SetCursorPosition(j * spacing, row);
+                        Console.Write(jokers[j][row]);
+                    }
+                }
+
+                spacing += step; // grow spacing
+                Thread.Sleep(1000);
             }
 
-                return used;
-            
-              
+            Console.SetCursorPosition(0, 5);
+        }
+        public static void JokerCreate(bool viewers, bool telephone, bool fifty, bool twoAnswer)
+        {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            //Console.Clear();
+
+            string[][] jokers = new string[][]
+            {
+                Joker.JokerModel("Viewers", viewers),
+                Joker.JokerModel("Telephone", telephone),
+                Joker.JokerModel("Fifty", fifty),
+                Joker.JokerModel("TwoAnswer", twoAnswer)
+            };
+
+            int spacing = 4; // start spacing
+            int step = 1;    // how much space to add per frame
+
+            for (int i = 0; i < 5; i++) // animate 5 frames
+            {
+                //Console.Clear();
+
+                for (int row = 0; row < 3; row++) // 3 rows tall
+                {
+                    for (int j = 0; j < jokers.Length; j++)
+                    {
+                        Console.SetCursorPosition(j * spacing, row);
+                        Console.Write(jokers[j][row]);
+                    }
+                }
+            }
+
+            Console.SetCursorPosition(0, 5);
         }
     }
 }
