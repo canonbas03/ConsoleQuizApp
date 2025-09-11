@@ -114,27 +114,45 @@ namespace BlankTest
                 Console.Write(graph[i]);
                 Console.ResetColor();
             }
-            Console.ForegroundColor= ConsoleColor.DarkGreen;
-            Console.Write("○ ○ ● ◆ ◆ ");
-            Console.ForegroundColor= ConsoleColor.Green;
-            Console.Write("◆ ◆ ◆ ◆ ◆ ");
-            Console.ForegroundColor= ConsoleColor.Yellow;
-            Console.Write("◆ ◆ ◆ ◆ ◆ ");
-            Console.ForegroundColor= ConsoleColor.DarkYellow;
-            Console.Write("◆ ◆ ◆ ◆ ◆ ");
-            Console.ForegroundColor= ConsoleColor.Red;
-            Console.Write("◆ ◆ ◆ ◆ ◆ ");
-            Console.ForegroundColor= ConsoleColor.DarkRed;
-            Console.Write("◆ ◆ ◆ ◆ ◆");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.Write("\t\t\t    ○ ○ ● ● ● ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("● ● ● ● ● ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("● ● ● ● ● ");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write("● ● ● ● ● ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("● ● ● ● ● ");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write("● ● ● ● ●");
             Console.ResetColor();
-            Console.WriteLine("\r\n\r\n—---------------------------------------{What is the capital of France?}—--------------------------------------------\r\n");
+            Console.WriteLine("\n\n—---------------------------{              What is the capital of France?             }-----------------------------\r\n");
             Console.WriteLine("\t◆ A:  London\t\t\t\t       ◆ B:  Berlin\n");
             Console.WriteLine("\t◆ C:  Sofia\t\t\t\t       ◆ D:  Paris\r\n");
+            TimeRemover();
             Console.SetCursorPosition(0, 27);
             //foreach (var question in )
             //{
 
             //}
+        }
+
+        public static void TimeRemover()
+        {
+            int cursorColumn = 28;
+            int cursorRow = 17;
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.CursorVisible = false;
+            for (int i = 0; i < 30; i++)
+            {
+                Console.SetCursorPosition(cursorColumn, cursorRow);
+                Console.Write("○");
+                cursorColumn+=2;
+                Console.Beep(500,200);
+                Thread.Sleep(1000);
+            }
+
         }
 
 
