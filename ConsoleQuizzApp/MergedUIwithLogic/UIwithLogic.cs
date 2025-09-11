@@ -26,68 +26,7 @@ namespace MergedUIwithLogic
 
             foreach (var quest in questions)
             {
-                //ProgressGraph(questionNumber);
-                //WriteQuestion(quest);
-                //questionGenerator
-                //do
-                //{
-                //    string message = string.Empty;
-                //    input = Console.ReadLine();
-                //    if (input == "1")
-                //    {
-                //        if (ViewerUsed)
-                //        {
-                //            Warning("Viewer joker is already used!");
-                //            continue;
-                //        }
-                //        ViewerUsed = true;
-                //        Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
-                //    }
-                //    else if (input == "2")
-                //    {
-                //        if (TelephoneUsed)
-                //        {
-                //            Warning("Telephone joker is already used!");
-                //            continue;
-                //        }
-                //        TelephoneUsed = true;
-                //        Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
-                //    }
-                //    else if (input == "3")
-                //    {
-                //        if (FiftyUsed)
-                //        {
-                //            Warning("50:50 joker is already used!");
-                //            continue;
-                //        }
-                //        FiftyUsed = true;
-                //        Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
-                //    }
-                //    else if (input == "4")
-                //    {
-                //        if (TwoAnswerUsed)
-                //        {
-                //            Warning("x2 joker is already used!");
-                //            continue;
-                //        }
-                //        TwoAnswerUsed = true;
-                //        Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
-                //    }
-                //    else if (walidAnswers.Contains(input))
-                //    {
-                //        Console.WriteLine(quest.IsCorrect(input));
-                //        questionNumber++;
-                //        if (quest.IsCorrect(input))
-                //        {
-                //            break;
-                //        }
-                //    }
-                //    else
-                //    {
-                //        Warning("Invalid choice!");
-                //    }
-                //} while (input != "end");
-                //Console.Clear();
+                
                 //  START OF SECOND
 
                 Joker.JokerInitialCreate();
@@ -148,7 +87,7 @@ namespace MergedUIwithLogic
                     }
                     else if (walidAnswers.Contains(input))
                     {
-                        Console.WriteLine(quest.IsCorrect(input));
+                        //Console.WriteLine(quest.IsCorrect(input));
                         questionNumber++;
                         if (quest.IsCorrect(input))
                         {
@@ -162,7 +101,7 @@ namespace MergedUIwithLogic
                 } while (input != "end");
                     return input;
                 Console.Clear();
-            });
+            },token);
                 // Timer task with cancellation support
                 var timerTask = Task.Run(() =>
                 {
@@ -225,7 +164,7 @@ namespace MergedUIwithLogic
                     break;
                 }
 
-                questionNumber++;
+                //questionNumber++;
                 Thread.Sleep(1500);
             }
 
