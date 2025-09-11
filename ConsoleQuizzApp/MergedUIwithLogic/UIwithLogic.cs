@@ -67,6 +67,7 @@ namespace MergedUIwithLogic
                             TelephoneUsed = true;
                             jokerIsUsed = true;
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
+                            break;
                         }
                         else if (input == "3")
                         {
@@ -78,6 +79,7 @@ namespace MergedUIwithLogic
                             FiftyUsed = true;
                             jokerIsUsed = true;
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
+                            break;
                         }
                         else if (input == "4")
                         {
@@ -89,15 +91,13 @@ namespace MergedUIwithLogic
                             TwoAnswerUsed = true;
                             jokerIsUsed = true;
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
+                            break;
                         }
                         else if (walidAnswers.Contains(input))
                         {
                             //Console.WriteLine(quest.IsCorrect(input));
                             questionNumber++;
-                            if (quest.IsCorrect(input))
-                            {
-                                break;
-                            }
+                            break;
                         }
                         else
                         {
@@ -194,7 +194,7 @@ namespace MergedUIwithLogic
 
         private static void WriteQuestion(Question quest)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.White;
             Console.Write(quest.Text);
             Console.WriteLine($"\t◆ A:  {quest.Options[0]}\t\t\t\t       ◆ B:  {quest.Options[1]}\n");
             Console.WriteLine($"\t◆ C:  {quest.Options[2]}\t\t\t\t       ◆ D:  {quest.Options[3]}\r\n");
@@ -258,15 +258,6 @@ namespace MergedUIwithLogic
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.Write("● ● ● ● ●");
             Console.ResetColor();
-            //Console.WriteLine("\n\n—---------------------------{              What is the capital of France?             }-----------------------------\r\n");
-            //Console.WriteLine("\t◆ A:  London\t\t\t\t       ◆ B:  Berlin\n");
-            //Console.WriteLine("\t◆ C:  Sofia\t\t\t\t       ◆ D:  Paris\r\n");
-            //TimeRemover();
-            // Console.SetCursorPosition(0, 27);
-            //foreach (var question in )
-            //{
-
-            //}
         }
 
         public static void TimeRemover()
@@ -294,104 +285,6 @@ namespace MergedUIwithLogic
                 //g#6 1661, f#6 1479
                 Thread.Sleep(800);
             }
-
-
-
-            //int score = 0;
-            //int questionNumber = 1;
-            //string[] optionFormat = { "   a. ", "   b. ", "   c. ", "   d. " };
-
-            //foreach (var quest in questions)
-            //{
-            //    Console.Clear();
-
-            //    // Reserve row 0 for the timer
-            //    Console.WriteLine("Time left: 10 seconds");
-
-            //    // Print question and answers below
-            //    Console.WriteLine($"{questionNumber}. {quest.Text}");
-            //    for (int i = 0; i < quest.Options.Length; i++)
-            //    {
-            //        Console.WriteLine(optionFormat[i] + quest.Options[i]);
-            //    }
-
-            //    Console.Write("\nYour Answer: ");
-
-            //    var cts = new CancellationTokenSource();
-            //    var token = cts.Token;
-
-            //    // Input task
-            //    var inputTask = Task.Run(() => Console.ReadLine());
-
-            //    // Timer task with cancellation support
-            //    var timerTask = Task.Run(() =>
-            //    {
-            //        for (int i = 10; i >= 0; i--)
-            //        {
-            //            if (token.IsCancellationRequested) break; // stop early
-
-            //            int curLeft = Console.CursorLeft;
-            //            int curTop = Console.CursorTop;
-
-            //            Console.SetCursorPosition(0, 0);
-            //            Console.ForegroundColor = i > 5 ? ConsoleColor.Green : ConsoleColor.Red;
-            //            Console.Write($"Time left: {i} seconds   ");
-            //            Console.ResetColor();
-
-            //            Console.SetCursorPosition(curLeft, curTop);
-
-            //            Thread.Sleep(1000);
-            //        }
-            //        return (string)null;
-            //    }, token);
-
-            //    // Wait for whichever finishes first
-            //    var finished = Task.WhenAny(inputTask, timerTask).Result;
-            //    string answer = finished == inputTask ? inputTask.Result : null;
-
-            //    // Cancel timer so it stops writing
-            //    cts.Cancel();
-
-            //    Console.ResetColor();
-            //    Console.WriteLine();
-
-            //    if (answer == null)
-            //    {
-            //        Console.ForegroundColor = ConsoleColor.Red;
-            //        Console.WriteLine("⏰ Time's up!");
-            //        Console.ResetColor();
-            //        break;
-            //    }
-            //    else if (quest.IsCorrect(answer))
-            //    {
-            //        Console.ForegroundColor = ConsoleColor.Green;
-            //        Console.WriteLine("✅ Correct!");
-            //        Console.ResetColor();
-            //        score++;
-            //    }
-            //    else
-            //    {
-            //        Console.ForegroundColor = ConsoleColor.Red;
-            //        Console.WriteLine("❌ WRONG!");
-            //        Console.ResetColor();
-            //        break;
-            //    }
-
-            //    questionNumber++;
-            //    Thread.Sleep(1500);
-            //}
-
-
-            //Console.ResetColor();
-            //Console.WriteLine();
-            //if (score == questions.Count)
-            //{
-            //    Console.WriteLine("🎉 YOU WON!!!");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("👋 GOOD BYE!");
-            //}
         }
     }
 
