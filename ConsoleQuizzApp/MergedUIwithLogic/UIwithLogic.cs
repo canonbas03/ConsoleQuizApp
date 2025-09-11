@@ -8,18 +8,17 @@ namespace MergedUIwithLogic
         static void Main(string[] args)
         {
             Console.CursorVisible = false;
-            // Example questions
             List<Question> questions = QuizData.Questions.ToList();
             bool ViewerUsed = false;
             bool TelephoneUsed = false;
             bool FiftyUsed = false;
             bool TwoAnswerUsed = false;
+            bool jokerIsUsed = false;
             Joker.JokerInitialCreate();
 
             string input;
             int score = 0;
             int questionNumber = 1;
-            //string[] optionFormat = { "   a. ", "   b. ", "   c. ", "   d. " };
             string[] walidAnswers = new[] { "a", "b", "c", "d" };
 
             foreach (var quest in questions)
@@ -33,6 +32,7 @@ namespace MergedUIwithLogic
 
 
                 Console.Write("\nYour Answer: ");
+                
 
                 var cts = new CancellationTokenSource();
                 var token = cts.Token;
@@ -49,10 +49,13 @@ namespace MergedUIwithLogic
                             if (ViewerUsed)
                             {
                                 Warning("Viewer joker is already used!");
+                                //continue;
                                 continue;
                             }
                             ViewerUsed = true;
+                            jokerIsUsed = true;
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
+                            break;
                         }
                         else if (input == "2")
                         {
@@ -62,6 +65,7 @@ namespace MergedUIwithLogic
                                 continue;
                             }
                             TelephoneUsed = true;
+                            jokerIsUsed = true;
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
                         }
                         else if (input == "3")
@@ -72,6 +76,7 @@ namespace MergedUIwithLogic
                                 continue;
                             }
                             FiftyUsed = true;
+                            jokerIsUsed = true;
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
                         }
                         else if (input == "4")
@@ -82,6 +87,7 @@ namespace MergedUIwithLogic
                                 continue;
                             }
                             TwoAnswerUsed = true;
+                            jokerIsUsed = true;
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
                         }
                         else if (walidAnswers.Contains(input))
@@ -116,6 +122,7 @@ namespace MergedUIwithLogic
                         if (token.IsCancellationRequested) break; // stop early
                         Console.SetCursorPosition(cursorColumn, cursorRow);
                         Console.Write("○");
+                        Console.SetCursorPosition(13, 25);
                         cursorColumn += 2;
                         tick = tick == true ? false : true;
                         if (!tick)
@@ -143,6 +150,11 @@ namespace MergedUIwithLogic
                 Console.ResetColor();
                 Console.WriteLine();
 
+                if(jokerIsUsed)
+                {
+                    jokerIsUsed = false;
+                    continue;
+                }
                 if (answer == null)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -152,11 +164,6 @@ namespace MergedUIwithLogic
                 }
                 else if (quest.IsCorrect(answer))
                 {
-                    //Console.Clear();
-                    //Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
-                    //ProgressGraph(questionNumber);
-                    //WriteQuestion(quest);
-                    //Console.ResetColor();
                     score++;
                 }
                 else
