@@ -158,7 +158,6 @@ namespace BlankTest
                 }
                 else
                 {
-
                     Console.Beep(1479, 200);
                 }
                 //g#6 1661, f#6 1479
