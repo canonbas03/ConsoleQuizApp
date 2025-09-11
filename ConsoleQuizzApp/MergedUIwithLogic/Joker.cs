@@ -66,6 +66,7 @@ namespace BlankTest
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.ForegroundColor = ConsoleColor.White;
             //Console.Clear();
 
             string[][] jokers = new string[][]

@@ -32,7 +32,7 @@ namespace MergedUIwithLogic
 
 
                 Console.Write("\nYour Answer: ");
-                
+
 
                 var cts = new CancellationTokenSource();
                 var token = cts.Token;
@@ -150,7 +150,7 @@ namespace MergedUIwithLogic
                 Console.ResetColor();
                 Console.WriteLine();
 
-                if(jokerIsUsed)
+                if (jokerIsUsed)
                 {
                     jokerIsUsed = false;
                     continue;
@@ -196,8 +196,8 @@ namespace MergedUIwithLogic
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(quest.Text);
-            Console.WriteLine($"\t◆ A:  {quest.Options[0]}\t\t\t\t       ◆ B:  {quest.Options[1]}\n");
-            Console.WriteLine($"\t◆ C:  {quest.Options[2]}\t\t\t\t       ◆ D:  {quest.Options[3]}\r\n");
+            Console.WriteLine($"\n\t\t\t      ◆ A:  {quest.Options[0]}\t\t       ◆ B:  {quest.Options[1]}");
+            Console.WriteLine($"\n\t\t\t      ◆ C:  {quest.Options[2]}\t\t       ◆ D:  {quest.Options[3]}\r\n");
         }
 
         public static void Warning(string message)
