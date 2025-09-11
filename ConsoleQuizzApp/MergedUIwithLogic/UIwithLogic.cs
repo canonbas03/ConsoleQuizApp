@@ -110,34 +110,7 @@ namespace MergedUIwithLogic
                 // Timer task with cancellation support
                 var timerTask = Task.Run(() =>
                 {
-
-                    Thread.Sleep(0);
-                    int cursorColumn = 28;
-                    int cursorRow = 17;
-                    Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.CursorVisible = false;
-                    bool tick = true;
-                    for (int i = 0; i < 10; i++)
-                    {
-                        if (token.IsCancellationRequested) break; // stop early
-                        Console.SetCursorPosition(cursorColumn, cursorRow);
-                        Console.Write("○");
-                        Console.SetCursorPosition(13, 25);
-                        cursorColumn += 2;
-                        tick = tick == true ? false : true;
-                        if (!tick)
-                        {
-                            Console.Beep(1661, 200);
-                        }
-                        else
-                        {
-                            Console.Beep(1479, 200);
-                        }
-                        //g#6 1661, f#6 1479
-                        Thread.Sleep(800);
-                    }
-                    return (string)null;
-
+                    TimeRemover(token);
                 }, token);
 
                 // Wait for whichever finishes first
@@ -175,7 +148,7 @@ namespace MergedUIwithLogic
                 }
 
                 //questionNumber++;
-                Thread.Sleep(1500);
+               // Thread.Sleep(1500);
             }
 
 
@@ -197,7 +170,7 @@ namespace MergedUIwithLogic
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(quest.Text);
             Console.WriteLine($"\n\t\t\t      ◆ A:  {quest.Options[0]}\t\t       ◆ B:  {quest.Options[1]}");
-            Console.WriteLine($"\n\t\t\t      ◆ C:  {quest.Options[2]}\t\t       ◆ D:  {quest.Options[3]}\r\n");
+            Console.WriteLine($"\n\t\t\t      ◆ C:  {quest.Options[2]}\t\t       ◆ D:  {quest.Options[3]}");
         }
 
         public static void Warning(string message)
@@ -260,18 +233,21 @@ namespace MergedUIwithLogic
             Console.ResetColor();
         }
 
-        public static void TimeRemover()
+        public static string TimeRemover(CancellationToken token)
         {
-            Thread.Sleep(0);
+            Thread.Sleep(2000);
             int cursorColumn = 28;
             int cursorRow = 17;
-            Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.CursorVisible = false;
             bool tick = true;
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 10; i++)
             {
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                if (token.IsCancellationRequested) break; // stop early
                 Console.SetCursorPosition(cursorColumn, cursorRow);
                 Console.Write("○");
+                Console.SetCursorPosition(13, 25);
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 cursorColumn += 2;
                 tick = tick == true ? false : true;
                 if (!tick)
@@ -285,6 +261,30 @@ namespace MergedUIwithLogic
                 //g#6 1661, f#6 1479
                 Thread.Sleep(800);
             }
+            return (string)null;
+            //Thread.Sleep(0);
+            //int cursorColumn = 28;
+            //int cursorRow = 17;
+            //Console.ForegroundColor = ConsoleColor.DarkGray;
+            //Console.CursorVisible = false;
+            //bool tick = true;
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    Console.SetCursorPosition(cursorColumn, cursorRow);
+            //    Console.Write("○");
+            //    cursorColumn += 2;
+            //    tick = tick == true ? false : true;
+            //    if (!tick)
+            //    {
+            //        Console.Beep(1661, 200);
+            //    }
+            //    else
+            //    {
+            //        Console.Beep(1479, 200);
+            //    }
+            //    //g#6 1661, f#6 1479
+            //    Thread.Sleep(800);
+            //}
         }
     }
 
