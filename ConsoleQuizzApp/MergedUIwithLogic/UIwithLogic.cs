@@ -14,9 +14,7 @@ namespace MergedUIwithLogic
             bool TelephoneUsed = false;
             bool FiftyUsed = false;
             bool TwoAnswerUsed = false;
-            //Joker.JokerInitialCreate();
-            //Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
-            //Console.ResetColor();
+            Joker.JokerInitialCreate();
 
             string input;
             int score = 0;
@@ -26,10 +24,9 @@ namespace MergedUIwithLogic
 
             foreach (var quest in questions)
             {
-                
-                //  START OF SECOND
 
-                Joker.JokerInitialCreate();
+                //  START OF SECOND
+                Console.Clear();
                 Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
                 ProgressGraph(questionNumber);
                 WriteQuestion(quest);
@@ -41,70 +38,73 @@ namespace MergedUIwithLogic
                 var token = cts.Token;
 
                 // Input task
-                var inputTask = Task.Run(() => { do
+                var inputTask = Task.Run(() =>
                 {
-                    string message = string.Empty;
-                    input = Console.ReadLine();
-                    if (input == "1")
+                    do
                     {
-                        if (ViewerUsed)
+                        string message = string.Empty;
+                        input = Console.ReadLine();
+                        if (input == "1")
                         {
-                            Warning("Viewer joker is already used!");
-                            continue;
+                            if (ViewerUsed)
+                            {
+                                Warning("Viewer joker is already used!");
+                                continue;
+                            }
+                            ViewerUsed = true;
+                            Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
                         }
-                        ViewerUsed = true;
-                        Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
-                    }
-                    else if (input == "2")
-                    {
-                        if (TelephoneUsed)
+                        else if (input == "2")
                         {
-                            Warning("Telephone joker is already used!");
-                            continue;
+                            if (TelephoneUsed)
+                            {
+                                Warning("Telephone joker is already used!");
+                                continue;
+                            }
+                            TelephoneUsed = true;
+                            Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
                         }
-                        TelephoneUsed = true;
-                        Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
-                    }
-                    else if (input == "3")
-                    {
-                        if (FiftyUsed)
+                        else if (input == "3")
                         {
-                            Warning("50:50 joker is already used!");
-                            continue;
+                            if (FiftyUsed)
+                            {
+                                Warning("50:50 joker is already used!");
+                                continue;
+                            }
+                            FiftyUsed = true;
+                            Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
                         }
-                        FiftyUsed = true;
-                        Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
-                    }
-                    else if (input == "4")
-                    {
-                        if (TwoAnswerUsed)
+                        else if (input == "4")
                         {
-                            Warning("x2 joker is already used!");
-                            continue;
+                            if (TwoAnswerUsed)
+                            {
+                                Warning("x2 joker is already used!");
+                                continue;
+                            }
+                            TwoAnswerUsed = true;
+                            Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
                         }
-                        TwoAnswerUsed = true;
-                        Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
-                    }
-                    else if (walidAnswers.Contains(input))
-                    {
-                        //Console.WriteLine(quest.IsCorrect(input));
-                        questionNumber++;
-                        if (quest.IsCorrect(input))
+                        else if (walidAnswers.Contains(input))
                         {
-                            break;
+                            //Console.WriteLine(quest.IsCorrect(input));
+                            questionNumber++;
+                            if (quest.IsCorrect(input))
+                            {
+                                break;
+                            }
                         }
-                    }
-                    else
-                    {
-                        Warning("Invalid choice!");
-                    }
-                } while (input != "end");
+                        else
+                        {
+                            Warning("Invalid choice!");
+                        }
+                    } while (true);
+                    Console.Clear();
                     return input;
-                Console.Clear();
-            },token);
+                }, token);
                 // Timer task with cancellation support
                 var timerTask = Task.Run(() =>
                 {
+
                     Thread.Sleep(0);
                     int cursorColumn = 28;
                     int cursorRow = 17;
@@ -113,6 +113,7 @@ namespace MergedUIwithLogic
                     bool tick = true;
                     for (int i = 0; i < 10; i++)
                     {
+                        if (token.IsCancellationRequested) break; // stop early
                         Console.SetCursorPosition(cursorColumn, cursorRow);
                         Console.Write("○");
                         cursorColumn += 2;
@@ -128,9 +129,9 @@ namespace MergedUIwithLogic
                         //g#6 1661, f#6 1479
                         Thread.Sleep(800);
                     }
-                        return (string)null;
+                    return (string)null;
 
-                    }, token);
+                }, token);
 
                 // Wait for whichever finishes first
                 var finished = Task.WhenAny(inputTask, timerTask).Result;
@@ -151,9 +152,11 @@ namespace MergedUIwithLogic
                 }
                 else if (quest.IsCorrect(answer))
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("✅ Correct!");
-                    Console.ResetColor();
+                    //Console.Clear();
+                    //Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
+                    //ProgressGraph(questionNumber);
+                    //WriteQuestion(quest);
+                    //Console.ResetColor();
                     score++;
                 }
                 else
@@ -252,7 +255,7 @@ namespace MergedUIwithLogic
             //Console.WriteLine("\t◆ A:  London\t\t\t\t       ◆ B:  Berlin\n");
             //Console.WriteLine("\t◆ C:  Sofia\t\t\t\t       ◆ D:  Paris\r\n");
             //TimeRemover();
-           // Console.SetCursorPosition(0, 27);
+            // Console.SetCursorPosition(0, 27);
             //foreach (var question in )
             //{
 
