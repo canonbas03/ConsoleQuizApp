@@ -56,6 +56,7 @@ namespace MergedUIwithLogic
                             ViewerUsed = true;
                             jokerIsUsed = true;
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
+                            CorrectAnswerShower(quest);
                             break;
                         }
                         else if (input == '2')
@@ -68,6 +69,7 @@ namespace MergedUIwithLogic
                             TelephoneUsed = true;
                             jokerIsUsed = true;
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
+                            CorrectAnswerShower(quest);
                             break;
                         }
                         else if (input == '3')
@@ -80,6 +82,7 @@ namespace MergedUIwithLogic
                             FiftyUsed = true;
                             jokerIsUsed = true;
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
+                            CorrectAnswerShower(quest);
                             break;
                         }
                         else if (input == '4')
@@ -92,6 +95,7 @@ namespace MergedUIwithLogic
                             TwoAnswerUsed = true;
                             jokerIsUsed = true;
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
+                            CorrectAnswerShower(quest);
                             break;
                         }
                         else if (walidAnswers.Contains(input))
@@ -125,11 +129,10 @@ namespace MergedUIwithLogic
                 Console.WriteLine();
 
                 char correctAnswer = quest.CorrectOption;
-                 static void ResultShower(char answer, Question question)
+                static void ResultMarker(char answer, Question question)
                 {
                     int collumn = 0;
                     int row = 0;
-                    char letter;
                     switch (answer)
                     {
                         case 'a':
@@ -150,19 +153,72 @@ namespace MergedUIwithLogic
                             break;
                         default:
                             break;
-                    };
+                    }
+                    ;
                     int questionIndex = answer - 'a';
                     //string optionToWrite = question.Options[2];
-                    Console.SetCursorPosition(collumn,row);
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.Write($"  ◆ {char.ToUpper(answer)}:  {question.Options[ questionIndex]}          ");
+                    Console.SetCursorPosition(collumn, row);
+                    Console.BackgroundColor = ConsoleColor.DarkYellow;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.Write($"  ◆ {char.ToUpper(answer)}:  {question.Options[questionIndex]}          ");
                     Console.ResetColor();
-                    
-                    //set cursor
-                    //change the background and foreground
-                    //wait some time
-                    // set the cursor to the correct answer
-                    // change the background
+                    Thread.Sleep(3000);
+                }
+                static void CorrectAnswerShower(Question question)
+                {
+                    int collumn = 0;
+                    int row = 0;
+                    char correctOption = question.CorrectOption;
+                    switch (correctOption)
+                    {
+                        case 'a':
+                            collumn = 28;
+                            row = 21;
+                            break;
+                        case 'b':
+                            collumn = 61;
+                            row = 21;
+                            break;
+                        case 'c':
+                            collumn = 28;
+                            row = 23;
+                            break;
+                        case 'd':
+                            collumn = 61;
+                            row = 23;
+                            break;
+                        default:
+                            break;
+                    }
+                    ;
+                    int questionIndex = correctOption - 'a';
+                    //string optionToWrite = question.Options[2];
+                    Console.SetCursorPosition(collumn, row);
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write($"  ◆ {char.ToUpper(correctOption)}:  {question.Options[questionIndex]}          ");
+                    Thread.Sleep(200);
+                    Console.SetCursorPosition(collumn, row);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write($"  ◆ {char.ToUpper(correctOption)}:  {question.Options[questionIndex]}          ");
+                    Thread.Sleep(200);
+                    Console.SetCursorPosition(collumn, row);
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write($"  ◆ {char.ToUpper(correctOption)}:  {question.Options[questionIndex]}          ");
+                    Thread.Sleep(200);
+                    Console.SetCursorPosition(collumn, row);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write($"  ◆ {char.ToUpper(correctOption)}:  {question.Options[questionIndex]}          ");
+                    Thread.Sleep(200);
+                    Console.SetCursorPosition(collumn, row);
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write($"  ◆ {char.ToUpper(correctOption)}:  {question.Options[questionIndex]}          ");
+                    Console.ResetColor();
+                    Thread.Sleep(1500);
                 }
 
                 if (jokerIsUsed)
@@ -179,12 +235,15 @@ namespace MergedUIwithLogic
                 }
                 else if (quest.IsCorrect(answer))
                 {
-                    ResultShower(answer, quest);
+                    ResultMarker(answer, quest);
+                    CorrectAnswerShower(quest);
                     Thread.Sleep(5000);
                     score++;
                 }
                 else
                 {
+                    ResultMarker(answer, quest);
+                    CorrectAnswerShower(quest);
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("❌ WRONG!");
                     Console.ResetColor();
@@ -192,7 +251,7 @@ namespace MergedUIwithLogic
                 }
 
                 //questionNumber++;
-               Thread.Sleep(1500);
+                Thread.Sleep(1500);
             }
 
 
