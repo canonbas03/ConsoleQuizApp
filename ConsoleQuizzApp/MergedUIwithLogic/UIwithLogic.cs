@@ -1,5 +1,6 @@
 ﻿using ConsoleQuizzApp;
 using BlankTest;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MergedUIwithLogic
 {
@@ -16,10 +17,10 @@ namespace MergedUIwithLogic
             bool jokerIsUsed = false;
             Joker.JokerInitialCreate();
 
-            string input;
+            char input;
             int score = 0;
             int questionNumber = 1;
-            string[] walidAnswers = new[] { "a", "b", "c", "d" };
+            char[] walidAnswers = new[] { 'a', 'b', 'c', 'd' };
 
             foreach (var quest in questions)
             {
@@ -43,8 +44,8 @@ namespace MergedUIwithLogic
                     do
                     {
                         string message = string.Empty;
-                        input = Console.ReadLine();
-                        if (input == "1")
+                        input = char.Parse(Console.ReadLine());
+                        if (input == '1')
                         {
                             if (ViewerUsed)
                             {
@@ -57,7 +58,7 @@ namespace MergedUIwithLogic
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
                             break;
                         }
-                        else if (input == "2")
+                        else if (input == '2')
                         {
                             if (TelephoneUsed)
                             {
@@ -69,7 +70,7 @@ namespace MergedUIwithLogic
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
                             break;
                         }
-                        else if (input == "3")
+                        else if (input == '3')
                         {
                             if (FiftyUsed)
                             {
@@ -81,7 +82,7 @@ namespace MergedUIwithLogic
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
                             break;
                         }
-                        else if (input == "4")
+                        else if (input == '4')
                         {
                             if (TwoAnswerUsed)
                             {
@@ -104,7 +105,7 @@ namespace MergedUIwithLogic
                             Warning("Invalid choice!");
                         }
                     } while (true);
-                    Console.Clear();
+                    //Console.Clear();
                     return input;
                 }, token);
                 // Timer task with cancellation support
@@ -115,13 +116,54 @@ namespace MergedUIwithLogic
 
                 // Wait for whichever finishes first
                 var finished = Task.WhenAny(inputTask, timerTask).Result;
-                string answer = finished == inputTask ? inputTask.Result : null;
+                char answer = finished == inputTask ? inputTask.Result : 'a';
 
                 // Cancel timer so it stops writing
                 cts.Cancel();
 
                 Console.ResetColor();
                 Console.WriteLine();
+
+                char correctAnswer = quest.CorrectOption;
+                 static void ResultShower(char answer, Question question)
+                {
+                    int collumn = 0;
+                    int row = 0;
+                    char letter;
+                    switch (answer)
+                    {
+                        case 'a':
+                            collumn = 28;
+                            row = 21;
+                            break;
+                        case 'b':
+                            collumn = 61;
+                            row = 21;
+                            break;
+                        case 'c':
+                            collumn = 28;
+                            row = 23;
+                            break;
+                        case 'd':
+                            collumn = 61;
+                            row = 23;
+                            break;
+                        default:
+                            break;
+                    };
+                    int questionIndex = answer - 'a';
+                    //string optionToWrite = question.Options[2];
+                    Console.SetCursorPosition(collumn,row);
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.Write($"  ◆ {char.ToUpper(answer)}:  {question.Options[ questionIndex]}          ");
+                    Console.ResetColor();
+                    
+                    //set cursor
+                    //change the background and foreground
+                    //wait some time
+                    // set the cursor to the correct answer
+                    // change the background
+                }
 
                 if (jokerIsUsed)
                 {
@@ -137,6 +179,8 @@ namespace MergedUIwithLogic
                 }
                 else if (quest.IsCorrect(answer))
                 {
+                    ResultShower(answer, quest);
+                    Thread.Sleep(5000);
                     score++;
                 }
                 else
@@ -148,7 +192,7 @@ namespace MergedUIwithLogic
                 }
 
                 //questionNumber++;
-               // Thread.Sleep(1500);
+               Thread.Sleep(1500);
             }
 
 
@@ -262,29 +306,6 @@ namespace MergedUIwithLogic
                 Thread.Sleep(800);
             }
             return (string)null;
-            //Thread.Sleep(0);
-            //int cursorColumn = 28;
-            //int cursorRow = 17;
-            //Console.ForegroundColor = ConsoleColor.DarkGray;
-            //Console.CursorVisible = false;
-            //bool tick = true;
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    Console.SetCursorPosition(cursorColumn, cursorRow);
-            //    Console.Write("○");
-            //    cursorColumn += 2;
-            //    tick = tick == true ? false : true;
-            //    if (!tick)
-            //    {
-            //        Console.Beep(1661, 200);
-            //    }
-            //    else
-            //    {
-            //        Console.Beep(1479, 200);
-            //    }
-            //    //g#6 1661, f#6 1479
-            //    Thread.Sleep(800);
-            //}
         }
     }
 

@@ -10,11 +10,11 @@ namespace ConsoleQuizzApp
     {
         public string? Text { get; set; }
         public string[]? Options { get; set; }
-        public string CorrectOption { get; set; }
+        public char CorrectOption { get; set; }
 
-        public bool IsCorrect(string answer)
+        public bool IsCorrect(char answer)
         {
-            answer = answer.Trim().ToLower();
+            answer = char.ToLower(answer);
             if (answer == CorrectOption)
             { return true; }
             else { return false; }
