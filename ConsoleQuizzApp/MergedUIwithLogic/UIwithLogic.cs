@@ -15,22 +15,43 @@ namespace MergedUIwithLogic
             bool FiftyUsed = false;
             bool TwoAnswerUsed = false;
             bool jokerIsUsed = false;
-            Joker.JokerInitialCreate();
+            int balance = 0;
+            int[] awards = new[] { 100, 200, 300, 500, 1000, 2000, 4000, 8000, 16_000, 32_000, 64_000, 125_000, 250_000, 500_000, 1_000_000 };
+            int[] safetyNet = new int[] { 6,11 };
+;            Joker.JokerInitialCreate();
 
             char input;
-            int score = 0;
-            int questionNumber = 1;
-            char[] walidAnswers = new[] { 'a', 'b', 'c', 'd' };
+            //int score = 0;
+            int questionNumber = 0;
+            char[] walidAnswers = new[] { 'a', 'b', 'c', 'd', 'e' };
 
             foreach (var quest in questions)
             {
-
-                //  START OF SECOND
+                questionNumber++;
+                if(safetyNet.Contains(questionNumber))
+                {
+                    if(questionNumber == 6)
+                    {
+                        balance = awards[questionNumber-2];
+                    }
+                    else if (questionNumber == 11)
+                    {
+                        balance = awards[questionNumber - 2];
+                    }
+                }
                 Console.Clear();
-                Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
-                ProgressGraph(questionNumber);
-                WriteQuestion(quest);
 
+                Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
+                Progress.ProgressGraph(questionNumber);
+
+                WriteQuestion(quest);
+                if (questionNumber == 5)
+                {
+                    Question.PlayMusic("GOT");
+                Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
+                Progress.ProgressGraph(questionNumber);
+                WriteQuestion(quest);
+                }
 
                 Console.Write("\nYour Answer: ");
 
@@ -43,208 +64,121 @@ namespace MergedUIwithLogic
                 {
                     do
                     {
-                        string message = string.Empty;
                         input = char.Parse(Console.ReadLine());
                         if (input == '1')
                         {
                             if (ViewerUsed)
                             {
-                                Warning("Viewer joker is already used!");
-                                //continue;
+                                Warning.WarningMessage("Viewer joker is already used!");
                                 continue;
                             }
                             ViewerUsed = true;
                             jokerIsUsed = true;
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
-                            CorrectAnswerShower(quest);
+                            Progress.CorrectAnswerShower(quest);
                             break;
                         }
                         else if (input == '2')
                         {
                             if (TelephoneUsed)
                             {
-                                Warning("Telephone joker is already used!");
+                                Warning.WarningMessage("Telephone joker is already used!");
                                 continue;
                             }
                             TelephoneUsed = true;
                             jokerIsUsed = true;
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
-                            CorrectAnswerShower(quest);
+                            Progress.CorrectAnswerShower(quest);
+                            
                             break;
                         }
                         else if (input == '3')
                         {
                             if (FiftyUsed)
                             {
-                                Warning("50:50 joker is already used!");
+                                Warning.WarningMessage("50:50 joker is already used!");
                                 continue;
                             }
                             FiftyUsed = true;
                             jokerIsUsed = true;
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
-                            CorrectAnswerShower(quest);
+                            Progress.CorrectAnswerShower(quest);
                             break;
                         }
                         else if (input == '4')
                         {
                             if (TwoAnswerUsed)
                             {
-                                Warning("x2 joker is already used!");
+                                Warning.WarningMessage("x2 joker is already used!");
                                 continue;
                             }
                             TwoAnswerUsed = true;
                             jokerIsUsed = true;
                             Joker.JokerCreate(ViewerUsed, TelephoneUsed, FiftyUsed, TwoAnswerUsed);
-                            CorrectAnswerShower(quest);
+                            Progress.CorrectAnswerShower(quest);
                             break;
                         }
                         else if (walidAnswers.Contains(input))
                         {
-                            //Console.WriteLine(quest.IsCorrect(input));
-                            questionNumber++;
                             break;
                         }
                         else
                         {
-                            Warning("Invalid choice!");
+                            Warning.WarningMessage("Invalid choice!");
                         }
                     } while (true);
-                    //Console.Clear();
                     return input;
                 }, token);
                 // Timer task with cancellation support
                 var timerTask = Task.Run(() =>
                 {
-                    TimeRemover(token);
+                    Progress.TimeRemover(token);
                 }, token);
 
                 // Wait for whichever finishes first
                 var finished = Task.WhenAny(inputTask, timerTask).Result;
-                char answer = finished == inputTask ? inputTask.Result : 'a';
+                char answer = finished == inputTask ? inputTask.Result : 'N';
 
-                // Cancel timer so it stops writing
+                // Cancel tasks
                 cts.Cancel();
 
                 Console.ResetColor();
-                Console.WriteLine();
-
-                char correctAnswer = quest.CorrectOption;
-                static void ResultMarker(char answer, Question question)
-                {
-                    int collumn = 0;
-                    int row = 0;
-                    switch (answer)
-                    {
-                        case 'a':
-                            collumn = 28;
-                            row = 21;
-                            break;
-                        case 'b':
-                            collumn = 61;
-                            row = 21;
-                            break;
-                        case 'c':
-                            collumn = 28;
-                            row = 23;
-                            break;
-                        case 'd':
-                            collumn = 61;
-                            row = 23;
-                            break;
-                        default:
-                            break;
-                    }
-                    ;
-                    int questionIndex = answer - 'a';
-                    //string optionToWrite = question.Options[2];
-                    Console.SetCursorPosition(collumn, row);
-                    Console.BackgroundColor = ConsoleColor.DarkYellow;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.Write($"  ◆ {char.ToUpper(answer)}:  {question.Options[questionIndex]}          ");
-                    Console.ResetColor();
-                    Thread.Sleep(3000);
-                }
-                static void CorrectAnswerShower(Question question)
-                {
-                    int collumn = 0;
-                    int row = 0;
-                    char correctOption = question.CorrectOption;
-                    switch (correctOption)
-                    {
-                        case 'a':
-                            collumn = 28;
-                            row = 21;
-                            break;
-                        case 'b':
-                            collumn = 61;
-                            row = 21;
-                            break;
-                        case 'c':
-                            collumn = 28;
-                            row = 23;
-                            break;
-                        case 'd':
-                            collumn = 61;
-                            row = 23;
-                            break;
-                        default:
-                            break;
-                    }
-                    ;
-                    int questionIndex = correctOption - 'a';
-                    //string optionToWrite = question.Options[2];
-                    Console.SetCursorPosition(collumn, row);
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write($"  ◆ {char.ToUpper(correctOption)}:  {question.Options[questionIndex]}          ");
-                    Thread.Sleep(200);
-                    Console.SetCursorPosition(collumn, row);
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write($"  ◆ {char.ToUpper(correctOption)}:  {question.Options[questionIndex]}          ");
-                    Thread.Sleep(200);
-                    Console.SetCursorPosition(collumn, row);
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write($"  ◆ {char.ToUpper(correctOption)}:  {question.Options[questionIndex]}          ");
-                    Thread.Sleep(200);
-                    Console.SetCursorPosition(collumn, row);
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write($"  ◆ {char.ToUpper(correctOption)}:  {question.Options[questionIndex]}          ");
-                    Thread.Sleep(200);
-                    Console.SetCursorPosition(collumn, row);
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write($"  ◆ {char.ToUpper(correctOption)}:  {question.Options[questionIndex]}          ");
-                    Console.ResetColor();
-                    Thread.Sleep(1500);
-                }
 
                 if (jokerIsUsed)
                 {
                     jokerIsUsed = false;
                     continue;
                 }
-                if (answer == null)
+                if (answer == 'N')
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
+                    Progress.CorrectAnswerShower(quest);
                     Console.WriteLine("⏰ Time's up!");
                     Console.ResetColor();
                     break;
                 }
                 else if (quest.IsCorrect(answer))
                 {
-                    ResultMarker(answer, quest);
-                    CorrectAnswerShower(quest);
+                    Progress.ResultMarker(answer, quest);
+                    Progress.CorrectAnswerShower(quest);
+                }
+                else if (answer == 'e')
+                {
+                    if (questionNumber > 1)
+                    {
+                        Console.WriteLine($"You won ${awards[questionNumber - 2]}");
+                    }
+                    //CorrectAnswerShower(quest);
+                    //ResultMarker(answer, quest);
                     Thread.Sleep(5000);
-                    score++;
+                    break;
                 }
                 else
                 {
-                    ResultMarker(answer, quest);
-                    CorrectAnswerShower(quest);
+                    Progress.ResultMarker(answer, quest);
+                    Progress.CorrectAnswerShower(quest);
                     Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Clear();
                     Console.WriteLine("❌ WRONG!");
                     Console.ResetColor();
                     break;
@@ -257,12 +191,13 @@ namespace MergedUIwithLogic
 
             Console.ResetColor();
             Console.WriteLine();
-            if (score == questions.Count)
+            if (questionNumber == questions.Count)
             {
-                Console.WriteLine("🎉 YOU WON!!!");
+                Console.WriteLine("🎉 YOU WON $1 000 000!!!");
             }
             else
             {
+                Console.WriteLine($"You leave with ${balance}");
                 Console.WriteLine("👋 GOOD BYE!");
             }
 
@@ -272,100 +207,58 @@ namespace MergedUIwithLogic
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(quest.Text);
-            Console.WriteLine($"\n\t\t\t      ◆ A:  {quest.Options[0]}\t\t       ◆ B:  {quest.Options[1]}");
-            Console.WriteLine($"\n\t\t\t      ◆ C:  {quest.Options[2]}\t\t       ◆ D:  {quest.Options[3]}");
-        }
 
-        public static void Warning(string message)
-        {
-            Console.BackgroundColor = ConsoleColor.Red;
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(message);
-            Console.ResetColor();
-        }
+            int left = 30; // X position for A/C
+            int right = 63; // X position for B/D
+            int top = Console.CursorTop + 1; // start a couple lines below the question
 
-        public static void ProgressGraph(int question)
-        {
-            string[] graph = { "\t\t\t\t\t\t\t\t15      $1 000 000  ",
-                               "\r\n\t\t\t\t\t\t\t\t\t\t14      $500 000   ",
-                               "\r\n \t\t\t\t\t\t\t\t\t\t13      $250 000   ",
-                               "\r\n \t\t\t\t\t\t\t\t\t\t12      $125 000   ",
-                               "\r\n\t\t\t\t\t\t\t\t\t\t11      $64 000   ",
-                               "\r\n\t\t\t\t\t\t\t\t\t\t10      $32 000   ",
-                               "\r\n\t\t\t\t\t\t\t\t\t\t 9      $16 000   ",
-                               "\r\n\t\t\t\t\t\t\t\t\t\t 8      $8000      ",
-                               "\r\n\t\t\t\t\t\t\t\t\t\t 7      $4000      ",
-                               "\r\n\t\t\t\t\t\t\t\t\t\t 6      $2000      ",
-                               "\r\n\t\t\t\t\t\t\t\t\t\t 5      $1000      ",
-                               "\r\n\t\t\t\t\t\t\t\t\t\t 4      $500        ",
-                               "\r\n\t\t\t\t\t\t\t\t\t\t 3      $300        ",
-                               "\r\n\t\t\t\t\t\t\t\t\t\t 2      $200        ",
-                               "\r\n\t\t\t\t\t\t\t\t\t\t 1      $100        \n"
-            };
-            for (int i = 0; i < 15; i++)
-            {
-                int[] whiteColored = { 15, 10, 5 };
-                if (whiteColored.Contains(15 - i))
-                {
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                }
-                if (question == 15 - i)
-                {
-                    Console.BackgroundColor = ConsoleColor.DarkYellow;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                }
-                Console.Write(graph[i]);
-                Console.ResetColor();
-            }
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.Write("\t\t\t    ● ● ● ● ● ");
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write("● ● ● ● ● ");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write("● ● ● ● ● ");
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.Write("● ● ● ● ● ");
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("● ● ● ● ● ");
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.Write("● ● ● ● ●");
-            Console.ResetColor();
-        }
+            // Place A and B
+            Console.SetCursorPosition(left, top);
+            Console.Write($"◆ A: {quest.Options[0]}");
 
-        public static string TimeRemover(CancellationToken token)
-        {
-            Thread.Sleep(2000);
-            int cursorColumn = 28;
-            int cursorRow = 17;
-            Console.CursorVisible = false;
-            bool tick = true;
-            for (int i = 0; i < 10; i++)
-            {
-                Console.ForegroundColor = ConsoleColor.DarkGray;
-                if (token.IsCancellationRequested) break; // stop early
-                Console.SetCursorPosition(cursorColumn, cursorRow);
-                Console.Write("○");
-                Console.SetCursorPosition(13, 25);
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                cursorColumn += 2;
-                tick = tick == true ? false : true;
-                if (!tick)
-                {
-                    Console.Beep(1661, 200);
-                }
-                else
-                {
-                    Console.Beep(1479, 200);
-                }
-                //g#6 1661, f#6 1479
-                Thread.Sleep(800);
-            }
-            return (string)null;
+            Console.SetCursorPosition(right, top);
+            Console.Write($"◆ B: {quest.Options[1]}");
+
+            // Place C and D (on the next line)
+            Console.SetCursorPosition(left, top + 2);
+            Console.Write($"◆ C: {quest.Options[2]}");
+
+            Console.SetCursorPosition(right, top + 2);
+            Console.Write($"◆ D: {quest.Options[3]}");
+
+            Console.WriteLine();
         }
+        
+        //public static string TimeRemover(CancellationToken token)
+        //{
+        //    Thread.Sleep(2000);
+        //    int cursorColumn = 28;
+        //    int cursorRow = 20;
+        //    Console.CursorVisible = false;
+        //    bool tick = true;
+        //    for (int i = 0; i < 10; i++)
+        //    {
+        //        Console.ForegroundColor = ConsoleColor.DarkGray;
+        //        if (token.IsCancellationRequested) break; // stop early
+        //        Console.SetCursorPosition(cursorColumn, cursorRow);
+        //        Console.Write("○");
+        //        Console.SetCursorPosition(13, 28);
+        //        Console.ForegroundColor = ConsoleColor.Yellow;
+        //        cursorColumn += 2;
+        //        tick = tick == true ? false : true;
+        //        if (!tick)
+        //        {
+        //            Console.Beep(1661, 200);
+        //        }
+        //        else
+        //        {
+        //            Console.Beep(1479, 200);
+        //        }
+        //        //g#6 1661, f#6 1479
+        //        Thread.Sleep(800);
+        //    }
+        //    return (string)null;
+        //}
     }
 
 }
