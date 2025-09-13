@@ -10,29 +10,63 @@ namespace MergedUIwithLogic
     {
         public static void MainMenuShow()
         {
+            Console.OutputEncoding = Encoding.UTF8;
             Console.Clear();
             Console.CursorVisible = false;
+            Console.Write("▓▓");
+            Console.Write(new string(' ', 116));
+            Console.Write("▓▓");
+            Console.WriteLine();
+            Console.Write("▓");
+
+            Console.Write(new string(' ', 118));
+            Console.Write("▓");
+            Console.SetCursorPosition(0, 27);
+            Console.WriteLine();
+            Console.Write("▓");
+            Console.Write(new string(' ', 118));
+            Console.Write("▓");
+            Console.WriteLine();
+
+            Console.Write("▓▓");
+            Console.Write(new string(' ', 116));
+            Console.Write("▓▓");
+
+            ConsoleKey consoleKey;
+            Console.SetCursorPosition(30, 15);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("Make sure your consoles screen is in the indicated area!");
+            Console.SetCursorPosition(45, 18);
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.Write("Press ENTER ⏎ To Continue");
+            do
+            {
+                consoleKey = Console.ReadKey(true).Key;
+                
+            } while (consoleKey != ConsoleKey.Enter);
+            
             int position = 0;
-            string[] options = { "Play", "Settings", "Exit" };
+            string[] options = { "Play", "Guide", "Exit" };
 
             ConsoleKey key;
             do
             {
-                int column = 58;
-                int row = 20;
+                int column = 54;
+                int row = 14;
                 Console.Clear();
                 for (int i = 0; i < options.Length; i++)
                 {
                     if (i == position)
                     {
-                        Console.SetCursorPosition(58, 20 + i);
+                        Console.SetCursorPosition(column, row + i);
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.Write($"{options[i]} <");
                         Console.ResetColor();
                     }
                     else
                     {
-                        Console.SetCursorPosition(58, 20 + i);
+                        Console.SetCursorPosition(column, row + i);
 
                         Console.Write(options[i]);
                     }
