@@ -167,8 +167,9 @@ namespace MergedUIwithLogic
                 {
                     if (questionNumber > 1)
                     {
-                        Console.WriteLine($"You won ${awards[questionNumber - 2]}");
+                        EndScreen.ShowEndScreen(awards[questionNumber - 2]);
                     }
+                    EndScreen.ShowEndScreen(0);
                     //CorrectAnswerShower(quest);
                     //ResultMarker(answer, quest);
                     Thread.Sleep(5000);
@@ -198,6 +199,7 @@ namespace MergedUIwithLogic
             }
             else
             {
+                EndScreen.ShowEndScreen(balance);
                 Console.WriteLine($"You leave with ${balance}");
                 Console.WriteLine("👋 GOOD BYE!");
             }
@@ -229,37 +231,6 @@ namespace MergedUIwithLogic
 
             Console.WriteLine();
         }
-        
-        //public static string TimeRemover(CancellationToken token)
-        //{
-        //    Thread.Sleep(2000);
-        //    int cursorColumn = 28;
-        //    int cursorRow = 20;
-        //    Console.CursorVisible = false;
-        //    bool tick = true;
-        //    for (int i = 0; i < 10; i++)
-        //    {
-        //        Console.ForegroundColor = ConsoleColor.DarkGray;
-        //        if (token.IsCancellationRequested) break; // stop early
-        //        Console.SetCursorPosition(cursorColumn, cursorRow);
-        //        Console.Write("○");
-        //        Console.SetCursorPosition(13, 28);
-        //        Console.ForegroundColor = ConsoleColor.Yellow;
-        //        cursorColumn += 2;
-        //        tick = tick == true ? false : true;
-        //        if (!tick)
-        //        {
-        //            Console.Beep(1661, 200);
-        //        }
-        //        else
-        //        {
-        //            Console.Beep(1479, 200);
-        //        }
-        //        //g#6 1661, f#6 1479
-        //        Thread.Sleep(800);
-        //    }
-        //    return (string)null;
-        //}
     }
 
 }
