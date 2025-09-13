@@ -17,7 +17,7 @@ namespace MergedUIwithLogic
             ShowMenuItems();
         }
 
-        private static void ShowMenuItems()
+        public static void ShowMenuItems()
         {
             ConsoleKey key;
 
