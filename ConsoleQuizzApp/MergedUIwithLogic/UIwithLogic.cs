@@ -152,10 +152,10 @@ namespace MergedUIwithLogic
                 }
                 if (answer == 'N')
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Progress.CorrectAnswerShower(quest);
-                    Console.WriteLine("⏰ Time's up!");
-                    Console.ResetColor();
+                    //Console.ForegroundColor = ConsoleColor.Red;
+                    //Progress.CorrectAnswerShower(quest);
+                    //Console.WriteLine("⏰ Time's up!");
+                    //Console.ResetColor();
                     break;
                 }
                 else if (quest.IsCorrect(answer))
