@@ -8,6 +8,7 @@ namespace MergedUIwithLogic
     {
         static void Main(string[] args)
         {
+            MainMenu.MainMenuShow();
             Console.CursorVisible = false;
             List<Question> questions = QuizData.Questions.ToList();
             bool ViewerUsed = false;
