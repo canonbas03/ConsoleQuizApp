@@ -27,7 +27,51 @@ This project was made for fun in ~4 days as an experiment to push the limits of 
 [![✨ Features](https://img.shields.io/badge/✨%20Features-blue?style=plastic)](#-features-1)         <!-- Plastic -->
 [![✨ Features](https://img.shields.io/badge/✨%20Features-blue?style=social)](#-features-1)          <!-- Social -->
 
+[![✨ Features](https://img.shields.io/badge/✨%20Features-FF69B4?style=for-the-badge)](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-features)
 
+[![🛠️ Tech](https://img.shields.io/badge/🛠️%20Tech-1E90FF?style=for-the-badge)](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#%EF%B8%8F-tech)
+
+[![🧩 OOP Design](https://img.shields.io/badge/🧩%20OOP%20Design-32CD32?style=for-the-badge)](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-oop-design)
+
+[![🚀 How to Play](https://img.shields.io/badge/🚀%20How%20to%20Play-FFA500?style=for-the-badge)](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-how-to-play)
+
+[![🌟 Why I Built This](https://img.shields.io/badge/🌟%20Why%20I%20Built%20This-9370DB?style=for-the-badge)](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-why-i-built-this)
+
+
+<p align="center">
+  <a href="https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-features">
+    <img src="https://img.shields.io/badge/✨%20Features-DC143C?style=for-the-badge" alt="Features">
+  </a>
+  <a href="https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#%EF%B8%8F-tech">
+    <img src="https://img.shields.io/badge/🛠️%20Tech-1E90FF?style=for-the-badge" alt="Tech">
+  </a>
+  <a href="https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-oop-design">
+    <img src="https://img.shields.io/badge/🧩%20OOP%20Design-32CD32?style=for-the-badge" alt="OOP Design">
+  </a>
+  <a href="https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-how-to-play">
+    <img src="https://img.shields.io/badge/🚀%20How%20to%20Play-FFA500?style=for-the-badge" alt="How to Play">
+  </a>
+  <a href="https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-why-i-built-this">
+    <img src="https://img.shields.io/badge/🌟%20Why%20I%20Built%20This-9370DB?style=for-the-badge" alt="Why I Built This">
+  </a>
+</p>
+<p align="center">
+  <a href="https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-features" style="text-decoration:none;">
+    <img src="https://img.shields.io/badge/✨%20Features-DC143C?style=for-the-badge" alt="Features">
+  </a>
+  <a href="https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#%EF%B8%8F-tech" style="text-decoration:none;">
+    <img src="https://img.shields.io/badge/🛠️%20Tech-1E90FF?style=for-the-badge" alt="Tech">
+  </a>
+  <a href="https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-oop-design" style="text-decoration:none;">
+    <img src="https://img.shields.io/badge/🧩%20OOP%20Design-32CD32?style=for-the-badge" alt="OOP Design">
+  </a>
+  <a href="https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-how-to-play" style="text-decoration:none;">
+    <img src="https://img.shields.io/badge/🚀%20How%20to%20Play-FFA500?style=for-the-badge" alt="How to Play">
+  </a>
+  <a href="https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-why-i-built-this" style="text-decoration:none;">
+    <img src="https://img.shields.io/badge/🌟%20Why%20I%20Built%20This-9370DB?style=for-the-badge" alt="Why I Built This">
+  </a>
+</p>
 
 
 
