@@ -70,3 +70,12 @@ cd ConsoleQuizApp
 
 3. **Play directly in the console window, or download the .exe from the Releases
  section and run it directly.**
+
+---
+
+## 🌟 Why I Built This
+I made this project as a fun challenge to see how far I could push the limits of a console app.  
+I experimented with colors, animations, sounds, ASCII art, and game flow - things you wouldn’t normally expect in a plain console window.  
+What started as a 4-day experiment turned into a complete little game. 🚀
+
+---
