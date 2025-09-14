@@ -12,12 +12,12 @@ This project was made for fun in ~4 days as an experiment to push the limits of 
 
 ## ✨ Features
 
-- 🎭 **Animated Jokers** — 50:50, Ask the Audience, Phone a Friend, and Double Answer appear with console animations.  
-- 💰 **Money Tree with Live Indicator** — shows your progress through all 15 questions.  
-- 🟨 **Suspense Highlights** — selected answers turn yellow, and the correct one flashes green 3 times (like the real show).  
-- 🔤 **Big ASCII Screens** — used for the start screen and end game for a more dramatic look.  
-- ⏳ **Countdown Timer** — colored dots turn from green → yellow → red, with beeps for extra tension.  
-- 🎵 **Beep Sounds** — suspense and timing feedback using `Console.Beep()`.
+- 🎭 **Animated Jokers** - 50:50, Ask the Audience, Phone a Friend, and Double Answer appear with console animations.  
+- 💰 **Money Tree with Live Indicator** - shows your progress through all 15 questions.  
+- 🟨 **Suspense Highlights** - selected answers turn yellow, and the correct one flashes green 3 times (like the real show).  
+- 🔤 **Big ASCII Screens** - used for the start screen and end game for a more dramatic look.  
+- ⏳ **Countdown Timer** - colored dots turn from green → yellow → red, with beeps for extra tension.  
+- 🎵 **Beep Sounds** - suspense and timing feedback using `Console.Beep()`.
 
 ---
 
