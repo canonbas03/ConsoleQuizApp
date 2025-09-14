@@ -53,8 +53,20 @@ Although this was mainly a console experiment, the project applies object-orient
 
 ## 🚀 How to Play
 
+**Download the .exe from Releases and run it:**
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4045b7f4-25bc-4ff7-9a7a-221f341c85d3" alt="Game Screenshot" width="500"/>
+</p>
+OR:
+
 1. **Clone this repo**  
 
 ```bash
 git clone https://github.com/canonbas03/ConsoleQuizApp.git
 cd ConsoleQuizApp
+```
+2. **Open in Visual Studio (or use CLI: dotnet run)**
+
+3. **Play directly in the console window, or download the .exe from the Releases
+ section and run it directly.**
