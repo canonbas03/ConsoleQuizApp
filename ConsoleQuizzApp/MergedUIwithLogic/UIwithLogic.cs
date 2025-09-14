@@ -178,7 +178,7 @@ namespace QuizApp
                     Console.ResetColor();
                     break;
                 }
-                Thread.Sleep(1500);
+                Thread.Sleep(5000);
             }
 
 
