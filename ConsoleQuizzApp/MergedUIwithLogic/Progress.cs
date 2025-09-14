@@ -159,7 +159,7 @@ namespace MergedUIwithLogic
             int cursorRow = 20;
             Console.CursorVisible = false;
             bool tick = true;
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 30; i++)
             {
                 Console.ForegroundColor = ConsoleColor.DarkGray;
                 if (token.IsCancellationRequested) break; // stop early

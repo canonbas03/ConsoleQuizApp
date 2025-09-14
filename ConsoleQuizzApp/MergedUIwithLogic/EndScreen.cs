@@ -34,8 +34,15 @@ namespace MergedUIwithLogic
             };
             Console.Clear();
             Console.WriteLine("   ____                            _         _       _   _                 _ \r\n  / ___|___  _ __   __ _ _ __ __ _| |_ _   _| | __ _| |_(_) ___  _ __  ___| |\r\n | |   / _ \\| '_ \\ / _` | '__/ _` | __| | | | |/ _` | __| |/ _ \\| '_ \\/ __| |\r\n | |__| (_) | | | | (_| | | | (_| | |_| |_| | | (_| | |_| | (_) | | | \\__ \\_|\r\n  \\____\\___/|_| |_|\\__, |_|  \\__,_|\\__|\\__,_|_|\\__,_|\\__|_|\\___/|_| |_|___(_)\r\n                   |___/                                                     ");
-            Console.WriteLine($"You won: \n{asciiValues[balance]}");
+            Console.WriteLine("\n __   __           __        ___         \r\n \\ \\ / /__  _   _  \\ \\      / (_)_ __  _ \r\n  \\ V / _ \\| | | |  \\ \\ /\\ / /| | '_ \\(_)\r\n   | | (_) | |_| |   \\ V  V / | | | | |_ \r\n   |_|\\___/ \\__,_|    \\_/\\_/  |_|_| |_(_)\r\n                                         ");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine($"\n{asciiValues[balance]}");
             Thread.Sleep( 4000 );
+            ConsoleKey consoleKey;
+            do
+            {
+                consoleKey = Console.ReadKey(true).Key;
+            } while (consoleKey != ConsoleKey.Enter);
             MainMenu.ShowMenuItems();
         }
     }

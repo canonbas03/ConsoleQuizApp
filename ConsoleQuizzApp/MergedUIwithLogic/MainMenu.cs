@@ -71,7 +71,6 @@ namespace MergedUIwithLogic
                 default:
                     break;
             }
-            Console.WriteLine($"You selected: {options[position]}");
         }
 
         private static void ShowGuide()
@@ -86,25 +85,14 @@ namespace MergedUIwithLogic
             do
             {
                 key = Console.ReadKey(true).Key;
-            }while (key!=ConsoleKey.Enter );
+            } while (key != ConsoleKey.Enter);
             ShowMenuItems();
         }
 
         public static void MakeFrame()
         {
             ConsoleKey key;
-            Console.SetCursorPosition(30, 15);
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("Make sure your consoles screen is in the indicated area!");
-            Console.SetCursorPosition(45, 18);
-            Console.ForegroundColor = ConsoleColor.White;
 
-            Console.Write("Press ENTER ⏎ To Continue");
-            do
-            {
-                key = Console.ReadKey(true).Key;
-
-            } while (key != ConsoleKey.Enter);
             Console.Write("▓▓");
             Console.Write(new string(' ', 116));
             Console.Write("▓▓");
@@ -123,6 +111,18 @@ namespace MergedUIwithLogic
             Console.Write("▓▓");
             Console.Write(new string(' ', 116));
             Console.Write("▓▓");
+            Console.SetCursorPosition(30, 15);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("Make sure your consoles screen is in the indicated area!");
+            Console.SetCursorPosition(45, 18);
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.Write("Press ENTER ⏎ To Continue");
+            do
+            {
+                key = Console.ReadKey(true).Key;
+
+            } while (key != ConsoleKey.Enter);
         }
     }
 
