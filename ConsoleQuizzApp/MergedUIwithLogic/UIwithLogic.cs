@@ -2,7 +2,7 @@
 using BlankTest;
 using System.Security.Cryptography.X509Certificates;
 
-namespace MergedUIwithLogic
+namespace QuizApp
 {
     internal class UIwithLogic
     {
