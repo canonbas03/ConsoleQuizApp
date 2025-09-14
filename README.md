@@ -9,7 +9,7 @@ This project was made for fun in ~4 days as an experiment to push the limits of 
 
 |✨ Features|[![✨ Features](https://img.shields.io/badge/✨%20Features-grey?style=for-the-badge)](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-features-1)
 [✨ Features](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-features-1)
-[![✨ Features](https://img.shields.io/badge/✨%20Features-blue?style=for-the-badge)](#-features-1)
+[![✨ Features](https://img.shields.io/badge/✨%20Features-blue?style=for-the-badge)](#-features)
 [![✨ Features](https://img.shields.io/badge/✨%20Features-green?style=for-the-badge)](#-features-1)
 [![✨ Features](https://img.shields.io/badge/✨%20Features-red?style=for-the-badge)](#-features-1)
 [![✨ Features](https://img.shields.io/badge/✨%20Features-orange?style=for-the-badge)](#-features-1)
