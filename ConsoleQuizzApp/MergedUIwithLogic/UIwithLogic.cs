@@ -28,6 +28,7 @@ namespace QuizApp
 
             foreach (var quest in questions)
             {
+                Console.WriteLine("deleteme");
                 questionNumber++;
                 if(safetyNet.Contains(questionNumber))
                 {
