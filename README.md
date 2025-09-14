@@ -1,7 +1,7 @@
 # 🎮 Who Wants to Be a Millionaire? (Console Edition)
 
 A console-based remake of *Who Wants to Be a Millionaire?* built in C#.  
-This project was made for fun in ~4 days as an experiment to push the limits of what’s possible in the console window — colors, animations, sounds, and more.
+This project was made for fun in ~4 days as an experiment to push the limits of what’s possible in the console window - colors, animations, sounds, and more.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/f3c61c64-fb24-405a-b1ba-3b8eb247b45f" alt="Game Screenshot" width="500"/>
