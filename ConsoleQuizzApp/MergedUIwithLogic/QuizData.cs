@@ -106,8 +106,8 @@ namespace ConsoleQuizzApp
 
         public static string FormatQuestion(string question, int totalWidth = 116)
         {
-            int leftDashes = 30;
-            int rightDashes = 31;
+            int leftDashes = 20;
+            int rightDashes = 21;
 
             string leftPart = new string('-', leftDashes);
             string rightPart = new string('-', rightDashes);

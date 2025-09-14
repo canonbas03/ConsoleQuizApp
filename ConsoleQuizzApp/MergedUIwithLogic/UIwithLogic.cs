@@ -152,10 +152,6 @@ namespace MergedUIwithLogic
                 }
                 if (answer == 'N')
                 {
-                    //Console.ForegroundColor = ConsoleColor.Red;
-                    //Progress.CorrectAnswerShower(quest);
-                    //Console.WriteLine("⏰ Time's up!");
-                    //Console.ResetColor();
                     break;
                 }
                 else if (quest.IsCorrect(answer))
@@ -170,8 +166,6 @@ namespace MergedUIwithLogic
                         EndScreen.ShowEndScreen(awards[questionNumber - 2]);
                     }
                     EndScreen.ShowEndScreen(0);
-                    //CorrectAnswerShower(quest);
-                    //ResultMarker(answer, quest);
                     Thread.Sleep(5000);
                     break;
                 }
@@ -181,12 +175,9 @@ namespace MergedUIwithLogic
                     Progress.CorrectAnswerShower(quest);
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Clear();
-                    Console.WriteLine("❌ WRONG!");
                     Console.ResetColor();
                     break;
                 }
-
-                //questionNumber++;
                 Thread.Sleep(1500);
             }
 
@@ -195,13 +186,11 @@ namespace MergedUIwithLogic
             Console.WriteLine();
             if (questionNumber == questions.Count)
             {
-                Console.WriteLine("🎉 YOU WON $1 000 000!!!");
+                EndScreen.ShowEndScreen(1000000);
             }
             else
             {
                 EndScreen.ShowEndScreen(balance);
-                Console.WriteLine($"You leave with ${balance}");
-                Console.WriteLine("👋 GOOD BYE!");
             }
 
         }
