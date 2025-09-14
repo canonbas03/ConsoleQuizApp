@@ -76,10 +76,15 @@ namespace QuizApp
         private static void ShowGuide()
         {
             Console.Clear();
-            Console.WriteLine("You have your jokers on the top left, to use type \"1\", \"2\", \"3\" or \"4\" and press ENTER ⏎");
-            Console.WriteLine("To answer a question press a, b, c or d and ENTER ⏎");
-            Console.WriteLine("To leave early you can press \"e\" and ENTER ⏎, you will earn the amount from the last question");
-            Console.WriteLine("If your answer is not correct, you will recieve the amount from the safety net (if you passed it), safety net questions are colored white");
+            Console.WriteLine("   ____       _     _        \r\n  / ___|_   _(_) __| | ___ _ \r\n | |  _| | | | |/ _` |/ _ (_)\r\n | |_| | |_| | | (_| |  __/_ \r\n  \\____|\\__,_|_|\\__,_|\\___(_)\r\n                             ");
+            Console.ForegroundColor= ConsoleColor.White;
+            Console.WriteLine("\n\t• You have your jokers on the top left, to use type \"1\", \"2\", \"3\" or \"4\" and press ENTER ⏎");
+            Console.WriteLine("\n\t• To answer a question press a, b, c or d and ENTER ⏎");
+            Console.WriteLine("\n\t• To leave early you can press \"e\" and ENTER ⏎, you will earn the amount from the last question");
+            Console.WriteLine("\n\t• If your answer is not correct, you will recieve the amount from the safety net (if you passed it),\n\t safety net questions are colored white");
+            Console.WriteLine("\n\t• Make sure you answer before the time runs out");
+            Console.SetCursorPosition(45, 22);
+            Console.ResetColor ();
             Console.WriteLine("Press ENTER ⏎ to continue");
             ConsoleKey key;
             do
@@ -93,24 +98,10 @@ namespace QuizApp
         {
             ConsoleKey key;
 
-            Console.Write("▓▓");
-            Console.Write(new string(' ', 116));
-            Console.Write("▓▓");
-            Console.WriteLine();
-            Console.Write("▓");
+            Console.Write($"▓▓{new string(' ', 116)}▓▓\n▓{new string(' ', 118)}▓");
+            Console.SetCursorPosition(0, 28);
+            Console.Write($"▓{new string(' ', 118)}▓\n▓▓{new string(' ', 116)}▓▓");
 
-            Console.Write(new string(' ', 118));
-            Console.Write("▓");
-            Console.SetCursorPosition(0, 27);
-            Console.WriteLine();
-            Console.Write("▓");
-            Console.Write(new string(' ', 118));
-            Console.Write("▓");
-            Console.WriteLine();
-
-            Console.Write("▓▓");
-            Console.Write(new string(' ', 116));
-            Console.Write("▓▓");
             Console.SetCursorPosition(30, 15);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("Make sure your consoles screen is in the indicated area!");
