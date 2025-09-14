@@ -58,7 +58,8 @@ Although this was mainly a console experiment, the project applies object-orient
 
 ## 🚀 How to Play
 
-**Download the .exe from Releases and run it:**
+**Download the .exe from [![Releases:](https://img.shields.io/badge/%20Releases-green?style=plastic)](http://github.com/canonbas03/ConsoleQuizApp/releases) and run it:**
+
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/4045b7f4-25bc-4ff7-9a7a-221f341c85d3" alt="Game Screenshot" width="500"/>
@@ -82,5 +83,9 @@ cd ConsoleQuizApp
 I made this project as a fun challenge to see how far I could push the limits of a console app.  
 I experimented with colors, animations, sounds, ASCII art, and game flow - things you wouldn’t normally expect in a plain console window.  
 What started as a 4-day experiment turned into a complete little game. 🚀
+
+
+
+
 
 ---
