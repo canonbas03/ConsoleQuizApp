@@ -7,7 +7,30 @@ This project was made for fun in ~4 days as an experiment to push the limits of 
   <img src="https://github.com/user-attachments/assets/f3c61c64-fb24-405a-b1ba-3b8eb247b45f" alt="Game Screenshot" width="500"/>
 </p>
 
-|✨ Features|
+|✨ Features|[![✨ Features](https://img.shields.io/badge/✨%20Features-grey?style=for-the-badge)](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-features-1)
+[✨ Features](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-features-1)
+[![✨ Features](https://img.shields.io/badge/✨%20Features-blue?style=for-the-badge)](#-features-1)
+[![✨ Features](https://img.shields.io/badge/✨%20Features-green?style=for-the-badge)](#-features-1)
+[![✨ Features](https://img.shields.io/badge/✨%20Features-red?style=for-the-badge)](#-features-1)
+[![✨ Features](https://img.shields.io/badge/✨%20Features-orange?style=for-the-badge)](#-features-1)
+[![✨ Features](https://img.shields.io/badge/✨%20Features-purple?style=for-the-badge)](#-features-1)
+[![✨ Features](https://img.shields.io/badge/✨%20Features-pink?style=for-the-badge)](#-features-1)
+[![✨ Features](https://img.shields.io/badge/✨%20Features-grey?style=for-the-badge)](#-features-1)
+
+[![✨ Features](https://img.shields.io/badge/✨%20Features-ff69b4?style=for-the-badge)](#-features-1)   <!-- Hot Pink -->
+[![✨ Features](https://img.shields.io/badge/✨%20Features-1E90FF?style=for-the-badge)](#-features-1) <!-- Dodger Blue -->
+[![✨ Features](https://img.shields.io/badge/✨%20Features-FFD700?style=for-the-badge)](#-features-1) <!-- Gold -->
+
+[![✨ Features](https://img.shields.io/badge/✨%20Features-blue?style=for-the-badge)](#-features-1)    <!-- Rectangular -->
+[![✨ Features](https://img.shields.io/badge/✨%20Features-blue?style=flat)](#-features-1)            <!-- Flat -->
+[![✨ Features](https://img.shields.io/badge/✨%20Features-blue?style=flat-square)](#-features-1)     <!-- Flat Square -->
+[![✨ Features](https://img.shields.io/badge/✨%20Features-blue?style=plastic)](#-features-1)         <!-- Plastic -->
+[![✨ Features](https://img.shields.io/badge/✨%20Features-blue?style=social)](#-features-1)          <!-- Social -->
+
+
+
+
+
 ---
 
 ## ✨ Features
