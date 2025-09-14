@@ -27,9 +27,7 @@ namespace BlankTest
         public static void JokerInitialCreate()
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
-            //Console.Clear();
 
             string[][] jokers = new string[][]
             {
@@ -65,9 +63,7 @@ namespace BlankTest
         public static void JokerCreate(bool viewers, bool telephone, bool fifty, bool twoAnswer)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
-            //Console.Clear();
 
             string[][] jokers = new string[][]
             {
@@ -94,7 +90,6 @@ namespace BlankTest
                 }
             }
             Console.ResetColor();
-            // Console.SetCursorPosition(0, 27);
         }
     }
 }
