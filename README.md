@@ -12,6 +12,7 @@ This project was made for fun in ~4 days as an experiment to push the limits of 
 [![🧩 OOP Design](https://img.shields.io/badge/🧩%20OOP%20Design-green?style=for-the-badge)](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-oop-design)
 [![🚀 How to Play](https://img.shields.io/badge/🚀%20How%20to%20Play-yellow?style=for-the-badge)](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-how-to-play)
 [![🌟 Why I Built This](https://img.shields.io/badge/🌟%20Why%20I%20Built%20This-purple?style=for-the-badge)](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-why-i-built-this)
+[![🔗 Resources](https://img.shields.io/badge/🔗%20Resources-grey?style=for-the-badge)](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-why-i-built-this)
 
 ---
 
@@ -87,5 +88,6 @@ What started as a 4-day experiment turned into a complete little game. 🚀
 
 
 
-
 ---
+## 🔗 Used Resources
+Text to ASCII Art <a href="https://patorjk.com/software/taag/" >Patrojk</a>, ASCII Archive <a href="https://www.asciiart.eu/">ASCIIA</a>
