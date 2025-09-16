@@ -1,7 +1,7 @@
 # 🎮 Who Wants to Be a Millionaire? (Console Edition)
 
 A console-based remake of *Who Wants to Be a Millionaire?* built in C#.  
-This project was made for fun in ~4 days as an experiment to push the limits of what’s possible in the console window - colors, animations, sounds, and more.
+This project was made for fun over a weekend as an experiment to push the limits of what's possible in the console window - colors, animations, sounds, and more.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/f3c61c64-fb24-405a-b1ba-3b8eb247b45f" alt="Game Screenshot" width="500"/>
@@ -12,7 +12,7 @@ This project was made for fun in ~4 days as an experiment to push the limits of 
 [![🧩 OOP Design](https://img.shields.io/badge/🧩%20OOP%20Design-green?style=for-the-badge)](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-oop-design)
 [![🚀 How to Play](https://img.shields.io/badge/🚀%20How%20to%20Play-yellow?style=for-the-badge)](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-how-to-play)
 [![🌟 Why I Built This](https://img.shields.io/badge/🌟%20Why%20I%20Built%20This-purple?style=for-the-badge)](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-why-i-built-this)
-[![🔗 Resources](https://img.shields.io/badge/🔗%20Resources-grey?style=for-the-badge)](https://github.com/canonbas03/ConsoleQuizApp/blob/main/README.md#-why-i-built-this)
+[![🔗 Resources](https://img.shields.io/badge/🔗%20Resources-grey?style=for-the-badge)](https://github.com/canonbas03/ConsoleQuizApp?tab=readme-ov-file#-used-resources)
 
 ---
 
@@ -83,7 +83,7 @@ cd ConsoleQuizApp
 ## 🌟 Why I Built This
 I made this project as a fun challenge to see how far I could push the limits of a console app.  
 I experimented with colors, animations, sounds, ASCII art, and game flow - things you wouldn’t normally expect in a plain console window.  
-What started as a 4-day experiment turned into a complete little game. 🚀
+What started as a weekend experiment turned into a complete little game (almost). 🚀
 
 
 
